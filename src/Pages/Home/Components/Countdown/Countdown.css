@@ -1,0 +1,71 @@
+.muhurtham-section {
+  position: relative;
+  container-type: inline-size;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(640px, 44vw, 960px);
+  color: #851e19;
+  background: linear-gradient(#fff1cf55, #fff1cf55), #fcf1d9 url('/art/cover/paper.webp') center/cover;
+  font-family: 'Cormorant Garamond', 'Noto Serif Telugu', serif;
+}
+.muhurtham-section::after { content: ''; position: absolute; inset: auto 0 0; height: 12%; background: linear-gradient(#c18a3410, transparent); border-top: 1px solid #d5b57424; z-index: -1; }
+.muhurtham-border { opacity: .8; }.muhurtham-seal { width: clamp(25px, 2.8cqw, 48px); height: clamp(25px, 2.8cqw, 48px); }
+.muhurtham-petals i { position: absolute; width: 11px; height: 6px; border-radius: 90% 12% 80% 20%; background: radial-gradient(ellipse at 30% 20%, #ffd6df, #e8879a 65%, #b84b69); box-shadow: 1px 2px 2px #a26e3b24; pointer-events: none; }
+.muhurtham-arch { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.muhurtham-heading { position: absolute; top: 14.5%; left: 18%; right: 18%; text-align: center; }
+.muhurtham-heading-ornament { display: flex; justify-content: center; align-items: center; gap: 2.2cqw; color: #b8802c; }
+.muhurtham-heading-ornament svg { width: 5cqw; height: auto; }
+.muhurtham-heading-ornament i { position: relative; width: 8cqw; height: 1px; background: #b8802c; }
+.muhurtham-heading-ornament i::before, .muhurtham-heading-ornament i::after { content: ''; width: 3px; height: 3px; background: #b8802c; rotate: 45deg; position: absolute; top: -1px; }
+.muhurtham-heading-ornament i::before { left: 0; }.muhurtham-heading-ornament i::after { right: 0; }
+.muhurtham-section .muhurtham-heading h2 { font: 600 clamp(20px, 1.8cqw, 39px)/1.5 'Cormorant Garamond', 'Noto Serif Telugu', serif; text-transform: uppercase; letter-spacing: .27em; color: #851e19; margin: 1.1cqw 0 0; }
+.muhurtham-timer { position: absolute; top: 39%; left: 22%; right: 22%; height: 37%; }
+.muhurtham-counters { height: 100%; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7.7%; }
+.muhurtham-counter { position: relative; width: 100%; aspect-ratio: 220 / 274; align-self: center; text-align: center; }
+.muhurtham-counter-frame { position: absolute; width: 100%; height: 100%; inset: 0; overflow: visible; filter: drop-shadow(0 7px 5px #9c5e212b); }
+.muhurtham-counter dt { position: absolute; top: 64%; left: 0; width: 100%; font-size: clamp(13px, 1.08cqw, 23px); line-height: 1.3; letter-spacing: .2em; font-weight: 600; }
+.muhurtham-counter dd { position: absolute; top: 20%; width: 100%; margin: 0; font-size: clamp(40px, 4.8cqw, 104px); line-height: 1; font-weight: 500; font-variant-numeric: tabular-nums lining-nums; }
+.muhurtham-number { display: inline-block; animation: muhurtham-tick .32s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes muhurtham-tick { from { opacity: .5; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
+.muhurtham-card-lotus { position: absolute; top: 80%; left: 40%; width: 20%; height: 12%; color: #b97e25; }
+.muhurtham-separator { position: absolute; top: 29%; left: calc(100% + 20%); width: 1px; height: 40%; background: linear-gradient(transparent, #be852d, transparent); }
+.muhurtham-separator::after { content: ''; position: absolute; top: 50%; left: -4px; width: 8px; height: 8px; background: #b97c22; transform: translateY(-50%) rotate(45deg); }
+.muhurtham-date { position: absolute; top: 80%; left: 22%; right: 22%; text-align: center; color: #6b593b; font-size: clamp(14px, 1cqw, 22px); letter-spacing: .08em; }
+.muhurtham-date small { display: block; margin-top: 3px; font-size: .8em; font-style: italic; letter-spacing: .025em; color: #776347; }
+.muhurtham-still-life { position: absolute; bottom: 7%; pointer-events: none; }
+.muhurtham-still-life img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; display: block; }
+.muhurtham-deepam { left: 3.5%; width: 16.5%; height: 48%; }
+.muhurtham-kalash { right: 3.2%; width: 16.5%; height: 41%; }
+.muhurtham-sketch { position: absolute; bottom: 9%; width: 22%; height: 55%; object-fit: contain; opacity: .2; mix-blend-mode: multiply; pointer-events: none; }
+.muhurtham-sketch-left { left: 0; object-position: left bottom; }.muhurtham-sketch-right { right: 0; object-position: right bottom; }
+.muhurtham-flowers { position: absolute; inset: 0; pointer-events: none; }
+.muhurtham-strand-wrap { position: absolute; top: -6%; height: 48%; width: 3.6%; }
+.muhurtham-strand { width: 100%; height: 100%; object-fit: contain; object-position: top; transform-origin: 50% 0; display: block; }
+.strand-0 { left: 1%; }.strand-1 { left: 4.7%; height: 39%; }.strand-2 { left: 8.8%; height: 31%; }.strand-3 { left: 12.2%; height: 25%; }
+.strand-4 { right: 12.2%; height: 25%; }.strand-5 { right: 8.8%; height: 31%; }.strand-6 { right: 4.7%; height: 39%; }.strand-7 { right: 1%; }
+.muhurtham-bottom-rule { position: absolute; bottom: 2.4%; height: 9.5%; left: 28%; right: 28%; display: flex; align-items: center; justify-content: center; color: #b9802d; gap: 12px; }
+.muhurtham-bottom-rule > i { flex: 1; height: 1px; background: #b9802d; position: relative; }.muhurtham-bottom-rule > i:first-child::before, .muhurtham-bottom-rule > i:last-child::after { content: ''; position: absolute; width: 5px; height: 5px; background: #b9802d; top: -2px; rotate: 45deg; }.muhurtham-bottom-rule > i:first-child::before { left: 0; }.muhurtham-bottom-rule > i:last-child::after { right: 0; }
+.muhurtham-bottom-rule img { width: 32%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.muhurtham-heading-ornament svg g, .muhurtham-bottom-rule > svg:not(.muhurtham-flourish) g { stroke-width: 2; }
+.locale-te .muhurtham-heading h2 { font-size: clamp(18px, 1.6cqw, 30px); letter-spacing: .04em; }.locale-te .muhurtham-counter dt { font-size: clamp(11px, .9cqw, 18px); letter-spacing: 0; }
+@media (max-width: 760px) {
+  .muhurtham-section { height: 900px; }
+  .muhurtham-arch { width: 190%; left: -45%; height: 68%; }
+  .muhurtham-heading { top: 13%; left: 8%; right: 8%; }
+  .muhurtham-heading-ornament { gap: 20px; }.muhurtham-heading-ornament svg { width: 56px; }.muhurtham-heading-ornament i { width: 50px; }
+  .muhurtham-section .muhurtham-heading h2 { font-size: clamp(18px, 4.8cqw, 26px); letter-spacing: .15em; margin-top: 13px; }
+  .muhurtham-timer { top: 28%; left: 18%; right: 18%; height: 43%; }
+  .muhurtham-counters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18%; }
+  .muhurtham-counter { min-height: 0; }.muhurtham-counter dd { font-size: clamp(40px, 12cqw, 68px); top: 21%; }.muhurtham-counter dt { font-size: clamp(10px, 2.5cqw, 14px); letter-spacing: .13em; }
+  .muhurtham-separator { display: none; }.muhurtham-counter-frame { filter: drop-shadow(0 4px 4px #9c5e2128); }
+  .muhurtham-date { top: 74%; left: 8%; right: 8%; font-size: 15px; letter-spacing: .03em; }.muhurtham-date small { font-size: 12px; }
+  .muhurtham-strand-wrap { width: 9%; height: 22%; top: -3%; }.strand-1,.strand-6 { height: 18%; }.strand-2,.strand-5 { height: 14%; }.strand-3,.strand-4 { display: none; }.strand-1 { left: 9%; }.strand-2 { left: 17%; }.strand-6 { right: 9%; }.strand-5 { right: 17%; }
+  .muhurtham-deepam { left: 2%; width: 25%; height: 17%; bottom: 2%; }.muhurtham-kalash { right: 2%; width: 27%; height: 15%; bottom: 2%; }
+  .muhurtham-sketch { width: 43%; height: 34%; bottom: 4%; opacity: .2; }
+  .muhurtham-petals i { width: 7px; height: 4px; }
+  .muhurtham-bottom-rule { left: 27%; right: 27%; bottom: 3%; height: 8%; gap: 5px; }.muhurtham-bottom-rule img { width: 72%; }
+  .locale-te .muhurtham-heading h2 { font-size: 20px; }.locale-te .muhurtham-counter dt { font-size: 11px; }
+}
+@media (min-width: 500px) and (max-width: 760px) { .muhurtham-timer { left: 26%; right: 26%; } }
+@media (prefers-reduced-motion: reduce) { .muhurtham-number { animation: none; }.muhurtham-strand { transform: none !important; } }
+@media print { .muhurtham-section { display: none; } }

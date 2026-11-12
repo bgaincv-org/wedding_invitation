@@ -1,0 +1,90 @@
+[
+  {
+    "width": 1900,
+    "height": 1045,
+    "locale": "en",
+    "name": "Sathvik & Harika",
+    "signatureBottom": 0.575627990430622,
+    "signatureGap": 14.625,
+    "buttonGap": 13.0625,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "locale": "en",
+    "name": "Sathvik & Harika",
+    "signatureBottom": 0.5756944444444444,
+    "signatureGap": 12.59375,
+    "buttonGap": 11.25,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "locale": "en",
+    "name": "Sathvik & Harika",
+    "signatureBottom": 0.6503073163507109,
+    "signatureGap": 14,
+    "buttonGap": 14,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "height": 640,
+    "locale": "en",
+    "name": "Sathvik & Harika",
+    "signatureBottom": 0.652392578125,
+    "signatureGap": 14,
+    "buttonGap": 10,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "locale": "en",
+    "name": "Sathvik & Harika",
+    "signatureBottom": 0.6126488095238095,
+    "signatureGap": 12,
+    "buttonGap": 5.25,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "locale": "en",
+    "name": "Sathvik & Harika",
+    "signatureBottom": 0.681884765625,
+    "signatureGap": 14,
+    "buttonGap": 14,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "locale": "te",
+    "name": "సాత్విక్ & హారిక",
+    "signatureBottom": 0.5670138888888889,
+    "signatureGap": 12.59375,
+    "buttonGap": 11.25,
+    "titleFits": true,
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "locale": "te",
+    "name": "సాత్విక్ & హారిక",
+    "signatureBottom": 0.6452347452606635,
+    "signatureGap": 14,
+    "buttonGap": 14,
+    "titleFits": true,
+    "overflow": false
+  }
+]

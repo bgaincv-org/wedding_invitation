@@ -1,0 +1,18 @@
+{
+  "timing": {
+    "samples": 1913,
+    "p50": 6.099999999999454,
+    "p95": 6.200000000000728,
+    "p99": 12,
+    "maximum": 90.90000000000009,
+    "over33ms": 3
+  },
+  "mapProviderLoaded": true,
+  "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: ; font-src 'self'; connect-src 'self'; media-src 'self' blob: ; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
+  "problems": [
+    "The resource http://127.0.0.1:3005/art/pancha-silk.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.",
+    "The resource http://127.0.0.1:3005/art/dharmavaram-silk.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.",
+    "The resource http://127.0.0.1:3005/art/pancha-silk.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.",
+    "The resource http://127.0.0.1:3005/art/dharmavaram-silk.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+  ]
+}

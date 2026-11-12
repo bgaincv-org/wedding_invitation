@@ -1,0 +1,28 @@
+import { test, expect } from '@playwright/test'
+
+test('the couple reveals after opening, keeps photo placeholders, and pauses without jumping', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Open invitation', exact: true }).click()
+  await expect(page.locator('.knot-curtain')).toBeVisible()
+  await expect(page.locator('.couple-composition')).toHaveCSS('visibility', 'hidden')
+  await expect(page.locator('#hero-title')).toBeFocused({ timeout: 8000 })
+  await expect(page.locator('#hero-title')).toHaveText('The Couple')
+  await expect(page.getByRole('img', { name: 'Portrait placeholder for Sathvik' })).toBeVisible()
+  await expect(page.getByRole('img', { name: 'Portrait placeholder for Harika' })).toBeVisible()
+  await expect(page.locator('.couple-person [data-writing-state="complete"]')).toHaveCount(2)
+  await page.locator('.couple-hero img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode())))
+  await page.getByRole('button', { name: 'Pause couple decorations' }).click()
+  const pose = await page.locator('.couple-lamp-left img').getAttribute('style')
+  await page.waitForTimeout(250)
+  expect(await page.locator('.couple-lamp-left img').getAttribute('style')).toBe(pose)
+  await page.getByRole('button', { name: 'Resume couple decorations' }).click()
+  await page.locator('#home').scrollIntoViewIfNeeded()
+  await expect.poll(() => page.locator('.couple-lamp-left img').getAttribute('style')).not.toBe(pose)
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await expect(page.locator('.couple-lamp-left img')).toHaveCSS('transform', 'none')
+  await page.getByRole('link', { name: 'Scroll to continue' }).click()
+  await expect(page.locator('#muhurtham')).toBeInViewport()
+  expect(errors).toEqual([])
+})

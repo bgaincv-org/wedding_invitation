@@ -1,0 +1,80 @@
+import { test, expect } from '@playwright/test'
+import AxeBuilder from '@axe-core/playwright'
+
+test('Escape completes the saree and reload restores the invitation cover', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('.welcome-dialog')).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(page.locator('.welcome-dialog')).toHaveClass(/is-cover/)
+  await page.keyboard.press('Escape')
+  await expect(page.locator('.knot-curtain')).toBeAttached()
+  await page.keyboard.press('Escape')
+  await expect(page.locator('.welcome-dialog')).not.toBeVisible()
+  await expect(page.locator('#hero-title')).toBeFocused()
+  await page.reload()
+  await expect(page.locator('.welcome-dialog')).toHaveClass(/is-cover/)
+  await expect(page.locator('.silk-curtain')).not.toBeAttached()
+  await page.getByRole('button', { name: 'Open invitation', exact: true }).click()
+  await expect(page.locator('.welcome-dialog')).not.toBeVisible()
+  await expect(page.getByRole('button', { name: 'Pause wedding song' })).toHaveAttribute('aria-pressed', 'true')
+})
+
+test('guest shortcut loads the deferred reply card from the opening', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Open invitation', exact: true }).click()
+  await page.getByRole('navigation', { name: 'Guest shortcuts' }).getByRole('link', { name: 'RSVP' }).click()
+  await expect(page.getByLabel('Your name', { exact: true })).toBeVisible()
+})
+
+test('gallery supports arrows, focus restoration, touch and a readable dialog', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/#moments')
+  const first = page.getByRole('button', { name: 'Open: An evening wrapped in jasmine' })
+  await first.click()
+  const dialog = page.locator('.memory-dialog')
+  await expect(dialog).toBeVisible()
+  await page.keyboard.press('ArrowRight')
+  await expect(dialog.getByRole('heading')).toHaveText('A little letter. So much love.')
+  await page.getByRole('button', { name: 'Next image', exact: true }).click()
+  await expect(dialog.getByRole('heading')).toHaveText('The beauty in our traditions')
+  await page.locator('.memory-dialog-stage').dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 250, clientY: 200 })
+  await page.locator('.memory-dialog-stage').dispatchEvent('pointerup', { pointerType: 'touch', clientX: 80, clientY: 200 })
+  await expect(dialog.getByRole('heading')).toHaveText('A beautiful beginning awaits')
+  await page.keyboard.press('ArrowRight')
+  await expect(dialog.getByRole('heading')).toHaveText('An evening wrapped in jasmine')
+  const scan = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()
+  expect(scan.violations).toEqual([])
+  await page.keyboard.press('Escape')
+  await expect(first).toBeFocused()
+})
+
+test('sharing strips personal query data and clipboard failure leaves a copyable link', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', { value: { writeText: () => Promise.reject(new Error('Blocked')) }, configurable: true }))
+  await page.goto('/?to=PrivateGuest&email=private@example.invalid#with-love')
+  await page.getByRole('button', { name: 'Sharing options' }).click()
+  const dialog = page.locator('.share-dialog')
+  await expect(dialog.getByRole('link', { name: 'WhatsApp' })).toHaveAttribute('href', /https:\/\/wa.me\//)
+  expect(await dialog.getByRole('link', { name: 'WhatsApp' }).getAttribute('href')).not.toContain('PrivateGuest')
+  await dialog.getByRole('button', { name: 'Copy invitation link' }).click()
+  await expect(page.getByLabel('Invitation link', { exact: true })).toHaveValue('http://127.0.0.1:5173/')
+  await page.keyboard.press('Escape')
+  await page.getByRole('button', { name: 'A note from our hearts' }).click()
+  await expect(page.locator('.closing-revealed')).toContainText('Come with your laughter.')
+  await expect(page.locator('.closing-revealed a')).toHaveAttribute('href', '#rsvp')
+})
+
+test('scroll scenes survive rapid forward/reverse travel and resizing', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  await page.goto('/#our-invitation')
+  for (const selector of ['#with-love', '.woven-journey', '#rsvp', '#home', '#celebrations']) {
+    await page.locator(selector).scrollIntoViewIfNeeded()
+    await page.waitForTimeout(150)
+  }
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.locator('.woven-journey').scrollIntoViewIfNeeded()
+  await expect(page.locator('.woven-chapter-first')).toHaveCSS('opacity', '1')
+  await expect(page.locator('.woven-chapter-second')).not.toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  expect(errors).toEqual([])
+})

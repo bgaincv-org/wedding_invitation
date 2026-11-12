@@ -1,0 +1,95 @@
+.wedding-journey {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  color: #705335;
+  background: linear-gradient(135deg,#fff5dc55,#f6dfa32b), #fff0cf url('/art/paper-grain.svg') center/180px 180px;
+  font-family: 'Cormorant Garamond', 'Noto Serif Telugu', serif;
+}
+.wedding-journey::before { content: ''; position: absolute; inset: 18px; z-index: -1; pointer-events: none; background: url('/art/journey/kolam-pattern.svg') center/128px 128px; opacity: .5; }
+.journey-symbols { position: absolute; width: 0; height: 0; overflow: hidden; }
+.journey-border { z-index: 4; }.journey-seal { width: clamp(26px,2.8vw,48px); height: clamp(26px,2.8vw,48px); }
+.journey-heading { text-align: center; padding: 76px 30px 50px; }
+.journey-eyebrow { font-size: 11px; letter-spacing: .26em; color: #9b773c; }
+.wedding-journey .journey-heading h2 { font: 400 clamp(48px,4.2vw,68px)/1.25 'Great Vibes',cursive; letter-spacing: 0; color: #861d39; margin: 16px 0 12px; }
+.journey-heading > p { font-size: 22px; line-height: 1.55; margin: 0; color: #6d643d; }
+.journey-heading-rule { margin-top: 22px; display: flex; justify-content: center; align-items: center; gap: 12px; color: #b5893e; }
+.journey-heading-rule svg { width: 28px; height: 22px; }.journey-heading-rule i { width: 52px; height: 1px; background: #b5893e; }
+.journey-chapters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; max-width: 1000px; padding: 0 28px; margin: -18px auto 0; }
+.journey-chapters a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 6px 4px; color: #86243d; font-size: 17px; line-height: 1.5; text-underline-offset: 5px; }
+.journey-chapters a > span { color: #8b6831; font-size: 11px; }
+.journey-chapters a:hover { text-decoration: underline; }
+.journey-chapters a:focus-visible,.journey-caption:focus-visible { outline: 1px solid #a57a2d; outline-offset: 5px; border-radius: 3px; }
+.journey-caption { scroll-margin-top: 70px; }
+.journey-timing-note { display: block; font-size: 14px; line-height: 1.5; font-style: italic; color: #756746; }
+.locale-te .journey-chapters a { font-size: 13px; }
+.locale-te .journey-timing-note { font-size: 12px; line-height: 1.8; }
+.journey-route { position: relative; width: min(1400px, calc(100% - 140px)); margin: 0 auto; }
+.journey-footsteps, .journey-stops { position: absolute; inset: 0; }
+.journey-step, .journey-moving-foot { position: absolute; width: 17px; height: 36px; translate: -50% -50%; transform-origin: center; pointer-events: none; }
+.journey-step > svg { width: 100%; height: 100%; display: block; transform-origin: 50% 15%; }
+.journey-moving-foot { left: 0; top: 0; opacity: 0; }
+.journey-moving-foot > svg { display: block; width: 100%; height: 100%; }
+.journey-stops { list-style: none; padding: 0; margin: 0; }
+.journey-stop { position: absolute; left: 0; right: 0; height: 1px; }
+.journey-ceremony-art { position: absolute; top: 0; width: 176px; height: 176px; translate: -50% -50%; display: grid; place-items: center; }
+.journey-ceremony-art::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: radial-gradient(ellipse,#e4b85b21,transparent 70%); }
+.journey-ceremony-art img { position: relative; width: 100%; height: 100%; object-fit: contain; transition: transform .6s ease; }
+.journey-stop:hover .journey-ceremony-art img,.journey-stop:focus-within .journey-ceremony-art img { transform: translateY(-4px) rotate(-1deg); }
+.journey-event-number { position: absolute; top: -24px; left: 50%; translate: -50% 0; font-size: 10px; line-height: 1; letter-spacing: .2em; color: #8b6831; }
+.journey-caption { position: absolute; top: -72px; text-align: left; }
+.journey-stop-left .journey-caption { text-align: right; }
+.journey-event-subtitle { display: block; font-size: 11px; line-height: 1.55; letter-spacing: .1em; text-transform: uppercase; color: #8d7448; }
+.journey-caption h3 { font-size: 34px; font-weight: 500; line-height: 1.12; color: #86243d; margin: 7px 0 10px; letter-spacing: -.3px; }
+.journey-event-description { font-size: 18px; line-height: 1.5; color: #6c6241; margin: 0 0 13px; }
+.journey-event-date { font-size: 17px; line-height: 1.45; color: #983a3e; margin: 0 0 4px; }
+.journey-event-date time { display: grid; gap: 4px; }
+.journey-event-date strong { font-weight: 500; }
+.journey-hospitality { font-size: 16px; line-height: 1.5; font-style: italic; margin: 4px 0 0; }
+.locale-te .journey-hospitality { font-size: 13px; line-height: 1.8; }
+.journey-event-location { font-size: 17px; line-height: 1.5; color: #746644; margin: 0; }
+.journey-provisional { display: block; margin-top: 5px; font-size: 13px; line-height: 1.5; font-style: italic; color: #7d6c49; }
+.journey-event-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 15px; }
+.journey-stop-left .journey-event-actions { justify-content: end; }
+.journey-event-actions a,.journey-event-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 42px; padding: 10px 15px; border: 1px solid #bd924b; border-radius: 30px; background: #fff5df88; color: #8e373c; font: 500 10px/1.2 'DM Sans','Noto Serif Telugu',sans-serif; letter-spacing: .09em; text-transform: uppercase; transition: background .25s ease, border-color .25s ease; }
+.journey-event-actions a:hover,.journey-event-actions button:hover { background: #f7e5bc; border-color: #9c6a28; }
+.journey-event-actions a:focus-visible,.journey-event-actions button:focus-visible { outline: 2px solid #8e373c; outline-offset: 4px; }
+.journey-end { text-align: center; padding: 0 32px 85px; position: relative; }
+.journey-end > svg { width: 32px; height: 25px; color: #a57a2d; }
+.journey-end > p { color: #86243d; font: 400 40px/1.4 'Great Vibes',cursive; margin: 12px 0 9px; }
+.journey-end > small { display: block; font-size: 16px; line-height: 1.65; max-width: 480px; margin: auto; color: #756746; }
+.journey-end > a { display: inline-flex; gap: 12px; align-items: center; justify-content: center; color: #8b6731; font-size: 16px; font-style: italic; margin-top: 25px; padding: 8px 15px; }
+.locale-te .journey-heading h2 { font-family: 'Noto Serif Telugu',serif; font-size: clamp(30px,3vw,47px); line-height: 1.7; }
+.locale-te .journey-heading > p { font-size: 17px; line-height: 1.9; }
+.locale-te .journey-caption h3 { font-size: 25px; line-height: 1.65; letter-spacing: 0; }.locale-te .journey-event-description { font-size: 15px; line-height: 1.85; }
+.locale-te .journey-event-subtitle { font-size: 10px; line-height: 1.8; letter-spacing: 0; }.locale-te .journey-event-date,.locale-te .journey-event-location { font-size: 14px; line-height: 1.8; }.locale-te .journey-provisional { font-size: 11px; line-height: 1.8; }
+.locale-te .journey-end > p { font-family: 'Noto Serif Telugu',serif; font-size: 26px; line-height: 1.7; }
+@media (max-width: 840px) {
+  .journey-route { width: calc(100% - 54px); }
+  .journey-heading { padding: 65px 30px 40px; }
+  .journey-heading > p { font-size: 20px; }
+  .journey-ceremony-art { width: 100px; height: 100px; }
+  .journey-caption { top: -48px; }.journey-caption h3 { font-size: 29px; }
+  .journey-stop-left .journey-caption { text-align: left; }.journey-stop-right .journey-caption { text-align: right; }
+  .journey-stop-left .journey-event-actions { justify-content: start; }.journey-stop-right .journey-event-actions { justify-content: end; }
+  .journey-event-description { font-size: 17px; }.journey-event-date,.journey-event-location { font-size: 16px; }
+  .journey-event-subtitle { font-size: 10px; letter-spacing: .04em; }
+}
+@media (max-width: 540px) {
+  .journey-route { width: calc(100% - 40px); }
+  .journey-heading { padding: 63px 25px 35px; }.journey-eyebrow { font-size: 8px; letter-spacing: .18em; }
+  .wedding-journey .journey-heading h2 { font-size: 43px; margin: 13px 0; }.journey-heading > p { font-size: 18px; }
+  .wedding-journey::before { background-size: 100px 100px; opacity: .36; }
+  .journey-ceremony-art { width: 92px; height: 92px; }.journey-event-number { top: -18px; font-size: 10px; }
+  .journey-chapters { gap: 2px 14px; padding-inline: 20px; margin-top: -12px; }.journey-chapters a { font-size: 15px; }
+  .journey-step, .journey-moving-foot { width: 14px; height: 30px; }
+  .journey-caption { top: -49px; }.journey-caption h3 { font-size: 26px; line-height: 1.2; margin-top: 8px; }
+  .journey-event-description { font-size: 16px; line-height: 1.55; }.journey-event-date,.journey-event-location { font-size: 15px; line-height: 1.55; }
+  .journey-event-subtitle { font-size: 9px; line-height: 1.7; }.journey-provisional { font-size: 12px; }
+  .journey-event-actions { margin-top: 13px; }.journey-event-actions a,.journey-event-actions button { padding: 10px 12px; font-size: 9px; letter-spacing: .04em; }
+  .journey-end { padding: 0 29px 65px; }.journey-end > p { font-size: 35px; }.journey-end > small { font-size: 14px; max-width: 280px; }
+  .locale-te .journey-heading h2 { font-size: 29px; }.locale-te .journey-heading > p { font-size: 14px; }.locale-te .journey-caption h3 { font-size: 21px; }.locale-te .journey-event-description { font-size: 14px; }.locale-te .journey-event-date,.locale-te .journey-event-location { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .journey-step > svg { opacity: .94 !important; transform: none !important; clip-path: none !important; }.journey-moving-foot { display: none; }.journey-event-actions a,.journey-event-actions button { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .journey-ceremony-art img { transition: none; }.journey-stop:hover .journey-ceremony-art img,.journey-stop:focus-within .journey-ceremony-art img { transform: none; } }
+@media print { .wedding-journey { display: none; } }

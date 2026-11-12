@@ -1,0 +1,38 @@
+import { test, expect } from '@playwright/test'
+
+for (const width of [320, 390, 768, 1440]) {
+  test(`footer stays hidden and the song stays at the bottom-right at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 })
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/')
+    await expect(page.locator('.wedding-song-player')).toBeHidden()
+    await page.getByRole('button', { name: 'Open invitation', exact: true }).click()
+    const player = page.locator('.wedding-song-player'), audio = page.locator('audio.wedding-audio')
+    await expect(page.locator('.site-footer')).toBeHidden()
+    await expect(page.locator('.footer-artwork')).toBeHidden()
+    await expect(page.locator('.wedding-song-link')).toHaveCount(0)
+    await expect(audio).toHaveCount(1)
+    await expect(audio).toHaveJSProperty('paused', false)
+    await expect(player).toHaveCSS('position', 'fixed')
+    const before = await player.boundingBox()
+    // The stable scrollbar gutter is excluded from the root's layout box.
+    const viewportWidth = await page.evaluate(() => document.documentElement.getBoundingClientRect().right)
+    expect(before!.x).toBeGreaterThanOrEqual(0)
+    expect(viewportWidth - before!.x - before!.width).toBeCloseTo(16, 0)
+    expect(844 - before!.y - before!.height).toBeCloseTo(16, 0)
+    const node = await audio.elementHandle()
+    const time = await audio.evaluate((el: HTMLAudioElement) => el.currentTime)
+    await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
+    expect(await player.boundingBox()).toEqual(before)
+    expect(await page.evaluate(el => el === document.querySelector('audio.wedding-audio'), node)).toBe(true)
+    await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.currentTime)).toBeGreaterThan(time + .2)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+    const height = await page.locator('.site-footer').evaluate(el => el.getBoundingClientRect().height)
+    expect(height).toBe(0)
+    await page.getByLabel('Song and artwork credits', { exact: true }).click()
+    await expect(page.locator('.song-credit')).toBeVisible()
+    await expect(page.locator('.butterfly-photo-credit')).toBeVisible()
+    await page.getByLabel('Song and artwork credits', { exact: true }).click()
+    await page.screenshot({ path: `artifacts/song-player/${width}.png` })
+  })
+}

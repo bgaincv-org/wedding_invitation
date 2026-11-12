@@ -1,0 +1,16 @@
+.site-footer.has-footer-art { padding-bottom: 0; overflow: hidden; background: linear-gradient(#fff4db33,#fcf1d988); }
+.footer-artwork { position: relative; margin: 48px -8.139535% 0; pointer-events: none; }
+.footer-artwork-reference { aspect-ratio: 16 / 9; }
+.footer-artwork-reference img {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 56.25%;
+  max-width: none;
+  height: auto;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+}
+@media (max-width: 540px) { .footer-artwork { margin: 32px -25px 0; } }
+@media print { .footer-artwork { display: none; } }

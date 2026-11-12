@@ -1,0 +1,191 @@
+@import '@fontsource/great-vibes/latin-400.css';
+
+html:has(.ceremonial-cover[open]) { scrollbar-gutter: auto; overflow: hidden; }
+.cover-copy h2:focus-visible, .hero h1:focus-visible { outline: none; }
+.welcome-dialog.ceremonial-cover {
+  position: fixed; inset: 0; width: 100%; height: 100svh; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; overflow-x: hidden; overflow-y: auto;
+  overscroll-behavior: contain; scrollbar-width: none; isolation: isolate;
+  color: #79132b; background: transparent;
+}
+.ceremonial-cover::backdrop { background: #fcf3df; }
+.cover-scene {
+  position: relative; width: 100%; height: 100%; min-height: 420px;
+  overflow: hidden; isolation: isolate; container-type: size; background: #fcf3df;
+}
+/* Coordinated artwork preserves the reference's proportions; all copy and actions are live HTML. */
+.cover-art { position: absolute; inset: 0; z-index: -1; display: block; pointer-events: none; }
+.cover-art picture { display: block; width: 100%; height: 100%; }
+.cover-art img { width: 100%; height: 100%; max-width: none; object-fit: fill; }
+.cover-live-art { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .2s ease; }
+.cover-art.is-animated .cover-live-art { opacity: 1; }
+.ceremonial-cover.is-intro .cover-copy { opacity: 0; }
+.ceremonial-cover.is-entering::backdrop { background: transparent; }
+.ceremonial-cover.is-entering .cover-scene { opacity: 0; transform: scale(1.012); transition: opacity .9s cubic-bezier(.4,0,.2,1), transform 1s cubic-bezier(.22,1,.36,1); }
+.cover-motion-toggle { position: absolute; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #bc954c80; color: #77521e; background: #fff8e5df; box-shadow: 0 2px 10px #5c421418; }
+.cover-motion-toggle:hover { background: #fff8e5; }
+.cover-copy {
+  position: absolute; top: 8cqh; left: 12%; right: 12%; display: flex;
+  flex-direction: column; align-items: center; text-align: center;
+}
+.cover-vinayaka { width: 13.2cqh; height: 16.4cqh; margin-bottom: .2cqh; object-fit: contain; }
+.cover-eyebrow {
+  font-family: 'Cormorant Garamond', 'Noto Serif Telugu', serif; font-size: 2.2cqh;
+  font-weight: 500; line-height: 1.25; letter-spacing: .36em; padding-left: .36em; color: #a56918;
+}
+.cover-copy h2 {
+  display: flex; align-items: baseline; justify-content: center; gap: 1.15cqw; margin: 1.2cqh 0 0;
+  font-family: 'Great Vibes', cursive; font-size: min(5.35cqw, 8.6cqh); font-weight: 400;
+  line-height: 1.05; letter-spacing: 0; white-space: nowrap; color: #7e102c;
+}
+.cover-copy h2 em {
+  font-family: 'Cormorant Garamond', serif; font-size: .72em;
+  font-style: italic; font-weight: 400; color: #ba8425;
+}
+.writing-name { display: inline-block; position: relative; white-space: nowrap; }
+.writing-ink { pointer-events: none; user-select: none; }
+.writing-calligraphy { display: inline-block; vertical-align: -.2em; max-width: none; overflow: visible; }
+.writing-name:not([data-writing-state='writing']) .writing-glyph { mask: none; }
+.hero .has-calligraphy { font-size: .9em; letter-spacing: 0; }
+.cover-divider { display: flex; align-items: center; gap: .55cqw; height: 2.5cqh; margin-top: .2cqh; color: #bd8724; }
+.cover-divider span { position: relative; width: 5.25cqw; height: 1px; background: currentColor; }
+.cover-divider span::before { content: ''; position: absolute; top: -1.5px; left: 0; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.cover-divider span:last-child::before { left: auto; right: 0; }
+.cover-divider svg { width: 3.1cqh; height: 2.5cqh; }
+.cover-divider svg path:nth-child(-n + 3) { fill: currentColor; stroke-width: 0; }
+.cover-divider svg path:last-child { display: none; }
+.cover-month {
+  margin-top: 1.05cqh; padding-left: .3em; font-family: 'Cormorant Garamond', 'Noto Serif Telugu', serif;
+  font-size: 2.3cqh; font-weight: 600; line-height: 1.25; letter-spacing: .3em; text-transform: uppercase; color: #4b5f35;
+}
+.cover-open-button {
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  min-width: clamp(180px, 12.8cqw, 244px); min-height: 40px; margin-top: 2cqh; padding: 6px 18px;
+  border: 1px solid #f2cd74; border-radius: 6px; outline: 2px solid #ae781c; outline-offset: 1px;
+  background: linear-gradient(105deg, #77132b, #821831 50%, #701027);
+  box-shadow: 0 5px 12px #56371340, inset 0 0 10px #4e06172e; color: #fff6e4;
+  font-family: 'Cormorant Garamond', 'Noto Serif Telugu', serif; font-size: clamp(13px, 1.4cqh, 16px);
+  font-weight: 600; line-height: 1.3; letter-spacing: .11em; text-transform: uppercase;
+  position: relative; isolation: isolate; overflow: hidden;
+  transition: translate .5s cubic-bezier(.22,1,.36,1), scale .3s cubic-bezier(.22,1,.36,1);
+}
+.cover-open-button svg { flex-shrink: 0; width: 14px; height: 14px; stroke-width: 1.5; }
+.cover-open-button::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(105deg, #952c43, #9c3049, #861c35); transition: opacity .5s ease; }
+.cover-open-button::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 25%, #fff0c31c 49%, transparent 70%); transform: translateX(-120%); }
+.cover-open-button svg { transition: translate .5s cubic-bezier(.22,1,.36,1); }
+.cover-open-button:not(:disabled):is(:hover, :focus-visible) { translate: 0 -2px; }
+.cover-open-button:not(:disabled):is(:hover, :focus-visible)::before { opacity: 1; }
+.cover-open-button:not(:disabled):is(:hover, :focus-visible) svg { translate: 3px 0; }
+.cover-open-button:not(:disabled):active { translate: 0 0; scale: .985; }
+.ceremonial-cover.is-cover .cover-open-button:not(:disabled)::after { animation: invitation-sheen 4.8s ease-in-out infinite; }
+.ceremonial-cover.is-cover .cover-open-button:not(:disabled) svg { animation: invitation-arrow 4.8s ease-in-out infinite; }
+.ceremonial-cover[data-motion-paused="true"] .cover-open-button::after,
+.ceremonial-cover[data-motion-paused="true"] .cover-open-button svg { animation-play-state: paused !important; }
+@keyframes invitation-sheen { 0%, 55% { transform: translateX(-120%); } 82%, 100% { transform: translateX(120%); } }
+@keyframes invitation-arrow { 0%, 40%, 100% { transform: translateX(0); } 20% { transform: translateX(4px); } }
+.cover-open-button:focus-visible { outline: 3px solid #805721; outline-offset: 6px; }
+.cover-open-button:disabled { opacity: 1; cursor: progress; }
+/* Keep the signature in the clear paper above the procession's parasols. */
+.cover-saha { margin-top: 1.25cqh; gap: max(12px, 1.4cqh); }
+.cover-saha .saha-signature-seal { width: 4.4cqh; height: 4.6cqh; }
+.cover-saha .saha-signature-wordmark { width: 7.2cqh; height: 3.2cqh; }
+.locale-te .cover-copy h2 { margin-top: 1.2cqh; font-family: 'Noto Serif Telugu', serif; font-size: min(4.1cqw, 6.1cqh); line-height: 1.6; gap: 1.5cqw; }
+.locale-te .cover-eyebrow { font-size: 1.7cqh; letter-spacing: .12em; }
+.locale-te .cover-month { font-size: 1.9cqh; letter-spacing: .12em; }
+.locale-te .cover-open-button { font-size: clamp(13px, 1.3cqh, 15px); letter-spacing: 0; }
+
+/* Portrait art keeps small leaves and the complete procession visible on phones. */
+@media (max-aspect-ratio: 4/5) {
+  .cover-scene { min-height: 540px; }
+  .cover-copy { top: 18%; left: 4%; right: 4%; }
+  .cover-vinayaka { width: 24cqw; height: 12.5cqh; margin-bottom: 1.7cqh; }
+  .cover-eyebrow { font-size: clamp(11px, 3.1cqw, 20px); letter-spacing: .27em; }
+  .cover-copy h2 { margin-top: 1.3cqh; font-size: 12.7cqw; line-height: 1.15; gap: 2.2cqw; }
+  .cover-divider { height: 22px; margin-top: 1cqh; gap: 9px; }
+  .cover-divider span { width: 13cqw; }
+  .cover-divider svg { width: 27px; height: 21px; }
+  .cover-month { margin-top: .9cqh; font-size: clamp(17px, 4.6cqw, 25px); }
+  .cover-open-button { min-width: clamp(180px, 46cqw, 208px); min-height: 40px; margin-top: 3.2cqh; padding: 7px 14px; font-size: clamp(13px, 3.1cqw, 14px); gap: 9px; }
+  .cover-saha { margin-top: 14px; gap: 14px; }
+  .cover-saha .saha-signature-seal { width: 42px; height: 44px; }
+  .cover-saha .saha-signature-wordmark { width: 64px; height: 29px; }
+  .locale-te .cover-copy h2 { margin-top: 1.5cqh; font-size: 7.7cqw; gap: 3cqw; line-height: 1.8; }
+  .locale-te .cover-eyebrow { font-size: clamp(11px, 2.9cqw, 18px); }
+  .locale-te .cover-month { font-size: clamp(16px, 4.3cqw, 23px); }
+  .locale-te .cover-open-button { font-size: clamp(13px, 3.1cqw, 14px); }
+}
+@media (max-height: 700px) and (max-aspect-ratio: 4/5) {
+  .cover-copy { top: 16%; }
+  .cover-vinayaka { height: 12cqh; margin-bottom: 1.3cqh; }
+  .cover-copy h2 { margin-top: 1cqh; }
+  .cover-open-button { min-height: 40px; margin-top: 2.7cqh; padding-block: 7px; }
+  .cover-saha { margin-top: 10px; }
+  .cover-saha .saha-signature-seal { width: 34px; height: 36px; }
+  .cover-saha .saha-signature-wordmark { width: 54px; height: 25px; }
+}
+@media (max-height: 540px) and (min-aspect-ratio: 4/5) {
+  .cover-scene { min-height: 420px; }
+  .cover-copy { top: 4%; }
+  .cover-vinayaka { height: 13cqh; width: 11cqh; margin-bottom: .5cqh; }
+  .cover-eyebrow { font-size: 11px; }
+  .cover-copy h2 { font-size: 10.5cqh; }
+  .cover-month { font-size: 14px; margin-top: .5cqh; }
+  .cover-open-button { min-height: 40px; margin-top: 2cqh; padding-block: 6px; }
+  .cover-saha { margin-top: 8px; }
+}
+
+.invitation-dialog.invitation-dialog-ornate { position: fixed; isolation: isolate; color: #761329; background: #fcf4e1 url('/art/cover/paper.webp') center / cover; }
+.invitation-dialog-ornate .dialog-toran { position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: auto; clip-path: inset(0 0 75% 0); pointer-events: none; }
+.invitation-dialog-ornate .dialog-inner { margin: 18px; border: 1px solid #bc974e; padding: 37px 35px 25px; }
+.invitation-dialog-ornate .dialog-vinayaka { width: 66px; height: 82px; object-fit: contain; margin: 15px 0 17px; }
+.invitation-dialog-ornate .dialog-inner h2 { font-family: 'Great Vibes', cursive; font-size: 65px; line-height: 1.1; margin: 20px 0; color: #761329; }
+.invitation-dialog-ornate .dialog-inner h2 em { font-family: 'Cormorant Garamond', serif; font-size: 29px; margin: 4px; color: #a87c29; }
+.invitation-dialog-ornate .dialog-inner .button-dark { background: #791a2d; color: #fff5e2; border: 1px solid #b89349; }
+.invitation-dialog-ornate .dialog-date { color: #526239; }
+.locale-te .invitation-dialog-ornate .dialog-inner h2 { font-family: 'Noto Serif Telugu', serif; font-size: 35px; line-height: 1.6; }
+
+.silk-curtain { position: fixed; inset: 0; z-index: 20; pointer-events: none; overflow: hidden; contain: strict; }
+.experience:not(.is-entered) .hero-copy { visibility: hidden; }
+.experience .button { transition: translate .5s cubic-bezier(.22,1,.36,1), scale .3s cubic-bezier(.22,1,.36,1), background .25s ease; }
+.experience .button:hover { transform: none; translate: 0 -2px; }
+.experience .button:active { translate: 0 0; scale: .985; }
+.experience .button svg { transition: translate .5s cubic-bezier(.22,1,.36,1); }
+.experience .button:hover svg { translate: 3px 0; }
+.wedding-song-link { display: inline-flex; align-items: center; flex-direction: column; gap: 8px; margin: 30px auto 5px; padding: 20px 34px; border: 1px solid #ae89444d; border-radius: 3px; transition: translate .5s cubic-bezier(.22,1,.36,1), background .3s ease; }
+.wedding-song-link:hover { translate: 0 -2px; background: #bc9a6210; }
+.wedding-song-link > span { font-size: 8px; letter-spacing: .2em; }
+.wedding-song-link strong { font-family: var(--serif); font-size: 25px; font-weight: 400; }
+.wedding-song-link small { display: flex; align-items: center; gap: 6px; font-size: 10px; }
+.knot-curtain { opacity: 1; }
+.knot-veil { position: absolute; inset: 0; opacity: 0; background: #fcf4e1 url('/art/cover/paper.webp') center / cover; will-change: opacity; }
+.knot-art { position: absolute; left: 50%; top: 50%; width: min(96vw, 1540px, 160svh); aspect-ratio: 1672 / 941; translate: -50% -50%; will-change: opacity; }
+.knot-art { opacity: 0; }
+.knot-art img, .knot-art canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.knot-art canvas { visibility: hidden; }
+.knot-art img { animation: none; }
+.knot-art img[hidden] { display: none; }
+.knot-curtain.has-webgl .knot-art canvas { visibility: visible; }
+.knot-curtain.has-webgl .knot-art img { visibility: hidden; animation: none; }
+@media (max-width: 600px) and (orientation: portrait) {
+  .knot-art { width: 100vw; height: min(68svh, 540px); aspect-ratio: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .writing-glyph { mask: none !important; }
+  .cover-open-button { transition: none; }
+  .experience .button, .experience .button svg, .wedding-song-link { transition: none; }
+  .experience .button:hover, .experience .button:hover svg, .wedding-song-link:hover { translate: none; }
+  .cover-open-button::before, .cover-open-button::after, .cover-open-button svg { transition: none; animation: none !important; }
+  .cover-open-button:not(:disabled):is(:hover, :focus-visible), .cover-open-button:not(:disabled):is(:hover, :focus-visible) svg { translate: none; }
+  .ceremonial-cover.is-entering .cover-scene { transition: none; transform: none; }
+  .cover-motion-toggle { display: none; }
+}
+
+/* Original panche and saree opening. */
+.cloth-half { position: absolute; top: 0; bottom: 0; width: 50%; overflow: hidden; }
+.cloth-pancha { left: 0; }
+.cloth-saree { right: 0; }
+.silk-curtain canvas { position: absolute; inset: 0; visibility: hidden; width: 100%; height: 100%; }
+.cloth-half.has-webgl canvas { visibility: visible; }
+.cloth-half.has-webgl .cloth-fallback-panel { visibility: hidden; }
+.cloth-fallback-panel { position: absolute; inset: 0; background: #781527 url('/art/dharmavaram-silk.webp') left center / cover; will-change: transform; }
+.cloth-pancha .cloth-fallback-panel { background-color: #f2e8d2; background-image: url('/art/pancha-silk.webp'); background-position: right center; }

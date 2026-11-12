@@ -1,0 +1,31 @@
+Photographic butterflies
+
+Photographer: Didier Descouens
+License for the source photographs and all derivative butterfly WebPs:
+Creative Commons Attribution-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Blue morpho (Morpho menelaus huebneri), Museum de Toulouse:
+https://commons.wikimedia.org/wiki/File:Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg
+Original download and additional details: blue-morpho-license.txt
+
+Orange monarch (Danaus plexippus), Museum de Toulouse:
+https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_dos.jpg
+Downloaded from:
+https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Danaus_plexippus_MHNT_dos.jpg/960px-Danaus_plexippus_MHNT_dos.jpg
+
+Yellow orange-barred sulphur (Phoebis philea), Museum de Toulouse:
+https://commons.wikimedia.org/wiki/File:Phoebis_philea_philea_MHNT_dos.jpg
+Downloaded from:
+https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Phoebis_philea_philea_MHNT_dos.jpg/960px-Phoebis_philea_philea_MHNT_dos.jpg
+
+Red glider (Cymothoe sangaris), Association Insecte du Monde - Philippe Annoyer:
+https://commons.wikimedia.org/wiki/File:Afrique_centrale_-_Cymothoe_sangaris_dos.jpg
+Downloaded from:
+https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Afrique_centrale_-_Cymothoe_sangaris_dos.jpg/960px-Afrique_centrale_-_Cymothoe_sangaris_dos.jpg
+
+Changes: conventional background masking, measurement-scale removal, cropping,
+resizing, WebP compression, and separation into left-wing, right-wing and body
+layers. Natural colors and photographic texture retained. No generative AI used.
+Motion is an animated website effect, not recorded video.
+No endorsement by the photographer or collections is implied.

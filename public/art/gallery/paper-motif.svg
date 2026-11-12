@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
+  <defs><g id="flower" stroke="#b39040" stroke-width=".7" opacity=".16">
+    <path d="M0-21C-9-12-9-5 0 1C9-5 9-12 0-21ZM0 1C-14-1-17-9-12-16C-6-13-2-7 0 1ZM0 1C14-1 17-9 12-16C6-13 2-7 0 1Z"/>
+    <path d="M0 1C-16 4-19-3-20-9C-10-11-5-4 0 1ZM0 1C16 4 19-3 20-9C10-11 5-4 0 1ZM0 0V23M0 13C-10 13-12 7-11 4C-6 4-2 8 0 13ZM0 18C10 18 12 12 11 9C6 9 2 13 0 18Z"/>
+    <path d="M-8 24Q0 19 8 24M-5 28H5"/><circle cy="-27" r="1" fill="#b39040"/>
+  </g></defs>
+  <use href="#flower" x="45" y="42"/><use href="#flower" x="135" y="132"/>
+  <g stroke="#b39040" stroke-width=".7" opacity=".12"><path d="m135 35 4 7-4 7-4-7Zm-90 90 4 7-4 7-4-7Z"/></g>
+</svg>

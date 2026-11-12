@@ -1,0 +1,69 @@
+.site-footer[hidden], .wedding-song-player[hidden] { display: none; }
+.wedding-song-player {
+  position: fixed;
+  z-index: 50;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid #b7955870;
+  border-radius: 999px;
+  background: #fff8e9f5;
+  color: #68502c;
+  box-shadow: 0 5px 22px #49331d20;
+  backdrop-filter: blur(10px);
+}
+.wedding-song-player .sound-control {
+  position: static;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 11px 14px;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  letter-spacing: .025em;
+}
+.wedding-song-player .sound-control.is-playing { background: #e9eddf; }
+.wedding-song-player .sound-control span { display: inline; }
+.wedding-song-player .song-notice {
+  position: absolute;
+  inset: auto 0 calc(100% + 12px) auto;
+  width: min(280px, calc(100vw - 32px));
+}
+.wedding-song-credits > summary {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  list-style: none;
+}
+.wedding-song-credits > summary::-webkit-details-marker { display: none; }
+.wedding-song-credits > summary:hover { background: #f2e6cc; }
+.wedding-song-credits > summary:focus-visible { outline: 2px solid #8e373c; outline-offset: 2px; }
+.wedding-song-credits-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: min(280px, calc(100vw - 32px));
+  padding: 18px;
+  border: 1px solid #b7955870;
+  border-radius: 12px;
+  background: #fff8ed;
+  box-shadow: 0 6px 24px #49331d20;
+  text-align: left;
+}
+.wedding-song-credits-panel strong { display: block; font: 500 24px/1.3 var(--serif); }
+.wedding-song-credits-panel a { display: block; margin: 12px 0 0; color: #6c5c41; font-size: 11px; line-height: 1.6; text-underline-offset: 3px; }
+.wedding-song-credits-panel .butterfly-photo-credit { padding-top: 12px; border-top: 1px solid #b7955833; }
+@media (max-width: 540px) {
+  .wedding-song-player .sound-control span { display: none; }
+  .wedding-song-player .sound-control { padding: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .wedding-song-player .sound-control { transition: none; } }
+@media print { .wedding-song-player { display: none; } }

@@ -1,0 +1,48 @@
+.venue-section { position: relative; padding: 96px 7%; color: #6d643d; background: linear-gradient(#fff1cf66,#fff1cf66), #fcf1d9 url('/art/cover/paper.webp') center / cover; font-family: var(--serif); }
+.venue-section::before { content: ''; position: absolute; inset: 0 8% auto; height: 1px; background: linear-gradient(90deg,transparent,#b5893e88,transparent); }
+.venue-layout { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(45px,7vw,100px); }
+.venue-intro { text-align: center; }
+.venue-lotus { display: block; width: 48px; height: 35px; margin: 0 auto 22px; color: #a57a2d; }
+.venue-eyebrow { font: 500 10px/1.8 'DM Sans','Noto Serif Telugu',sans-serif; letter-spacing: .2em; color: #826333; }
+.venue-intro h2 { color: #861d39; font: 400 clamp(44px,4.4vw,62px)/1.25 'Great Vibes',cursive; margin: 20px 0 28px; text-wrap: balance; }
+.venue-intro h3 { color: #861d39; font: 500 29px/1.3 var(--serif); margin: 0 0 14px; }
+.venue-intro address { max-width: 380px; margin: 0 auto; font: 400 21px/1.65 var(--serif); text-wrap: balance; }
+.venue-map-preview { position: relative; width: min(100%,440px); height: 222px; margin: 26px auto 0; padding: 5px; border: 1px solid #b5893e88; border-radius: 8px; background: #f1e6ca; overflow: hidden; }
+.venue-map-preview iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 4px; pointer-events: none; }
+.venue-map-preview[data-interactive='true'] iframe { pointer-events: auto; }
+.venue-map-loading { position: absolute; inset: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding-bottom: 40px; background: #f4e8ce; color: #756746; font: 400 12px/1.7 'DM Sans','Noto Serif Telugu',sans-serif; pointer-events: none; }
+.venue-map-explore { position: absolute; inset: 5px; display: flex; align-items: end; justify-content: center; padding: 16px; border: 0; border-radius: 4px; background: linear-gradient(transparent 65%,#fcf1d933); color: #861d39; cursor: pointer; }
+.venue-map-explore > span,.venue-map-lock { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 10px 14px; border: 1px solid #b5893e80; border-radius: 22px; background: #fff7e9f5; font: 500 11px/1.5 'DM Sans','Noto Serif Telugu',sans-serif; box-shadow: 0 2px 9px #50311620; }
+.venue-map-lock { position: absolute; right: 12px; top: 12px; color: #861d39; cursor: pointer; }
+.venue-map-caption { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 12px 0 0; color: #756746; font: 400 11px/1.7 'DM Sans','Noto Serif Telugu',sans-serif; }
+.venue-map { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-width: 220px; min-height: 58px; margin-top: 24px; padding: 11px 24px; border: 1px solid #f0ca77; border-radius: 32px; color: #fff6e4; background: #861d39; box-shadow: 0 4px 12px #57211624; font: 500 14px/1.5 'DM Sans','Noto Serif Telugu',sans-serif; transition: transform .25s ease,background .25s ease; }
+.venue-map > span { display: grid; gap: 1px; }.venue-map small { font-size: 9px; font-weight: 400; letter-spacing: .08em; color: #f2d9a8; }
+.venue-map::before { content: ''; position: absolute; inset: -4px; z-index: -1; border: 1px solid #b5893e; border-radius: inherit; opacity: 0; pointer-events: none; animation: venue-invitation-pulse 3.6s ease-out infinite paused; }
+.venue-map-arrow { animation: venue-direction-nudge 3.6s ease-in-out infinite paused; }
+.venue-section[data-motion-active='true'][data-motion-paused='false'] .venue-map::before,.venue-section[data-motion-active='true'][data-motion-paused='false'] .venue-map-arrow { animation-play-state: running; }
+@keyframes venue-invitation-pulse { 0% { transform: scale(.99); opacity: 0; } 20% { opacity: .65; } 75%,100% { transform: scale(1.12,1.32); opacity: 0; } }
+@keyframes venue-direction-nudge { 0%,35%,100% { transform: translate(0,0); } 50%,65% { transform: translate(3px,-3px); } }
+.venue-map svg { flex-shrink: 0; }
+.venue-map:hover { background: #73182f; transform: translateY(-2px); }
+.venue-map:focus-visible,.venue-schedule button:focus-visible { outline: 2px solid #861d39; outline-offset: 4px; }
+.venue-map-explore:focus-visible,.venue-map-lock:focus-visible,.venue-motion-toggle:focus-visible { outline: 2px solid #861d39; outline-offset: -3px; }
+.venue-motion-toggle { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 38px; margin: 10px auto 0; padding: 8px; border: 0; background: none; color: #756746; font: 400 10px/1.6 'DM Sans','Noto Serif Telugu',sans-serif; cursor: pointer; }
+.venue-schedule { padding: 32px 0; border-block: 1px solid #b5893e66; }
+.venue-dates { font-size: 28px; color: #861d39; margin: 0 0 8px; }
+.venue-overnight { font-size: 19px; line-height: 1.6; margin: 0 0 26px; }
+.venue-schedule ol { list-style: none; padding: 0; margin: 0; }
+.venue-schedule li + li { margin-top: 22px; padding-top: 22px; border-top: 1px solid #b5893e33; }
+.venue-schedule li { transition: transform .3s ease; }.venue-schedule li:focus-within { transform: translateX(3px); }
+.venue-schedule h3 { color: #861d39; font-size: 26px; font-weight: 500; margin: 0 0 8px; }
+.venue-schedule time { display: grid; gap: 4px; font-size: 19px; line-height: 1.5; }
+.venue-schedule time strong { font-weight: 500; color: #861d39; }
+.venue-schedule li > p { margin: 8px 0 4px; font-size: 18px; font-style: italic; }
+.venue-schedule button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 0; background: none; border: 0; color: #861d39; font: 500 11px/1.5 'DM Sans','Noto Serif Telugu',sans-serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.locale-te .venue-intro h2 { font: 400 clamp(28px,3vw,40px)/1.7 'Noto Serif Telugu',serif; }
+.locale-te .venue-eyebrow { letter-spacing: .04em; }
+.locale-te .venue-intro address,.locale-te .venue-overnight,.locale-te .venue-schedule time,.locale-te .venue-schedule li > p { font-size: 15px; line-height: 1.9; }
+.locale-te .venue-schedule h3 { font-size: 22px; line-height: 1.8; }
+.locale-te .venue-dates { font-size: 24px; line-height: 1.8; }
+@media(max-width:760px) { .venue-section { padding: 60px 24px; }.venue-layout { grid-template-columns: 1fr; gap: 40px; }.venue-intro h2 { font-size: 46px; }.venue-intro h3 { font-size: 27px; }.venue-intro address { font-size: 20px; }.venue-schedule { text-align: center; }.venue-dates { font-size: 26px; }.venue-eyebrow { font-size: 9px; letter-spacing: .12em; } }
+@media(max-width:420px) { .venue-map-preview { height: 206px; }.venue-map { min-width: 210px; } }
+@media(prefers-reduced-motion:reduce) { .venue-map::before,.venue-map-arrow { animation: none; }.venue-map,.venue-schedule li { transition: none; }.venue-map:hover,.venue-schedule li:focus-within { transform: none; }.venue-motion-toggle { display: none; } }

@@ -1,0 +1,76 @@
+.couple-butterfly {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--butterfly-ratio, 89 / 69);
+  perspective: 550px;
+  overflow: visible;
+  pointer-events: none;
+}
+.couple-butterfly-perched {
+  position: absolute;
+  width: 44%;
+  right: -12%;
+  top: 3%;
+  z-index: 3;
+  transform: rotate(28deg);
+  filter: drop-shadow(0 3px 3px #7e453022);
+  --flutter-duration: 5.5s;
+  --wing-fold: 42deg;
+}
+.butterfly-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+.butterfly-wing {
+  transform-origin: var(--wing-pivot, 49.1% 45.1%);
+  animation: couple-butterfly-flutter var(--flutter-duration, 1s) ease-in-out infinite;
+  animation-play-state: paused;
+}
+.butterfly-right { --wing-direction: -1; }
+.butterfly-body { z-index: 1; }
+.site-footer .butterfly-photo-credit {
+  position: relative;
+  display: inline-block;
+  margin-top: 16px;
+  padding-block: 12px;
+  font-size: 10px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.couple-butterfly-garden {
+  position: absolute;
+  inset: 18px;
+  z-index: 4;
+  overflow: hidden;
+  contain: layout paint;
+  pointer-events: none;
+}
+.couple-butterfly-flight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 16px;
+  opacity: 0;
+}
+.couple-butterfly-flight .butterfly-wing { animation-delay: var(--flight-delay); }
+.couple-hero[data-butterflies-running='true'] .couple-butterfly-perched .butterfly-wing,
+.couple-hero[data-butterflies-running='true'] .couple-butterfly-flight[data-flying='true'] .butterfly-wing { animation-play-state: running; }
+.couple-hero[data-couple-active='false'] .couple-butterfly-garden { visibility: hidden; }
+@keyframes couple-butterfly-flutter {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(calc(var(--wing-fold, 68deg) * var(--wing-direction, 1))); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .couple-butterfly-garden { display: none; }
+  .butterfly-wing { animation: none; }
+}
+@media print {
+  .couple-butterfly-garden { display: none; }
+  .butterfly-wing { animation: none; }
+}

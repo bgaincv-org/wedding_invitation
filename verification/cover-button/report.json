@@ -1,0 +1,88 @@
+{
+  "layouts": [
+    {
+      "width": 1900,
+      "height": 1045,
+      "locale": "en",
+      "button": {
+        "width": 288,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 1900,
+      "height": 1045,
+      "locale": "te",
+      "button": {
+        "width": 288,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "locale": "en",
+      "button": {
+        "width": 218.390625,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "locale": "te",
+      "button": {
+        "width": 218.390625,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "locale": "en",
+      "button": {
+        "width": 213.546875,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "locale": "te",
+      "button": {
+        "width": 204,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "locale": "en",
+      "button": {
+        "width": 213.546875,
+        "height": 44
+      },
+      "keyboardOpen": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "locale": "te",
+      "button": {
+        "width": 204,
+        "height": 44
+      },
+      "keyboardOpen": true
+    }
+  ],
+  "hoverAndPress": true,
+  "motionPauseResume": true,
+  "animatedOpening": true,
+  "errors": []
+}

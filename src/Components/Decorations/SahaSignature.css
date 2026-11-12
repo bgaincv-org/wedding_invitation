@@ -1,0 +1,4 @@
+.saha-signature { display: inline-flex; align-items: center; justify-content: center; gap: 10px; flex: none; }
+.saha-signature img { display: block; flex: none; object-fit: contain; }
+.saha-signature-seal { width: 48px; height: 50px; }
+.saha-signature-wordmark { width: 69px; height: 31px; }

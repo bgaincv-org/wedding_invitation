@@ -1,0 +1,71 @@
+/* Final responsive rules shared by the composed invitation sections. */
+.footer-preferences { margin: 28px auto 0; padding: 10px 0; border: 0; background: transparent; }
+.footer-preferences .sound-control span { display: inline; }
+.footer-preferences { flex-direction: column; gap: 14px; }
+.footer-preferences .chapter-dock { flex-wrap: wrap; justify-content: center; max-width: 100%; }
+.skip-link:not(:focus) { visibility: hidden; }
+
+@media (max-width: 760px) {
+  /* Intrinsic text widths must not push grid columns beyond a phone screen. */
+  .invitation-layout > *, .details-layout > *, .rsvp-section > *,
+  .form-row > *, .details-information > div > div { min-width: 0; }
+  .section-eyebrow { line-height: 1.8; }
+  .section-eyebrow > span, .section-eyebrow > i { flex-shrink: 0; }
+  .details-information h3 { overflow-wrap: anywhere; }
+  .tradition-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .tradition-tabs button, .locale-te .tradition-tabs button { white-space: normal; overflow-wrap: anywhere; font-size: 11px; line-height: 1.65; min-height: 48px; }
+  .guest-notes summary, .footer-bottom > a, .journey-event-actions a { min-height: 44px; }
+  .rsvp-form label, .rsvp-form legend { font-size: 12px; }
+  .rsvp-form input:not([type=checkbox]):not([type=radio]), .rsvp-form select, .rsvp-form textarea,
+  .share-dialog input { font-size: 16px; min-height: 48px; }
+  .rsvp-form textarea { min-height: 92px; }
+  .rsvp-form .consent { padding-block: 10px; gap: 12px; font-size: 12px !important; }
+  .consent input { width: 20px; height: 20px; }
+  .privacy-note { font-size: 11px !important; }
+  .attendance-options { gap: 8px; }
+  .attendance-options label, .locale-te .attendance-options label { flex: 1 1 120px; font-size: 12px; white-space: normal; line-height: 1.6; padding: 12px; }
+  .woven-sticky { height: auto; }
+  .woven-scroll { min-height: 44px; bottom: 12px; }
+  .closing-invitation { min-height: 0; }
+  .closing-card { min-height: 0; padding-bottom: 56px; }
+  .closing-card > .closing-blessing { margin-bottom: 10px; }
+  .closing-card h2 { overflow-wrap: anywhere; }
+  .closing-share > a, .closing-share > button { font-size: 11px; }
+  .footer-names { line-height: 1.9; }
+  .footer-preferences .invitation-preferences { gap: 8px 14px; }
+  .invitation-dialog .dialog-inner { padding-inline: 18px; }
+  .share-dialog { padding: 55px 24px 28px; }
+  .share-dialog h2 { font-size: 32px; }
+}
+
+@media (max-width: 540px) {
+  .form-row, .note-row { grid-template-columns: minmax(0, 1fr); gap: 23px; }
+  .rsvp-form input::placeholder, .rsvp-form textarea::placeholder { font-size: 14px; }
+  .couple-hero .hero-copy.couple-composition { padding-bottom: 30px; }
+  .locale-te .couple-heading > p { font-size: 14px; }
+  .locale-te .couple-description { font-size: 14px; }
+  .locale-te .details-layout h2, .locale-te .rsvp-copy h2,
+  .locale-te .invitation-prose h2, .locale-te .tradition-content h2 { font-size: clamp(27px, 7.7vw, 35px); line-height: 1.75; }
+  .wedding-song-link { width: 100%; max-width: 340px; padding-inline: 16px; }
+  .locale-te .wedding-song-link strong { font-size: 21px; line-height: 1.8; }
+  .locale-te .closing-share > a, .locale-te .closing-share > button { font-size: 11px; }
+}
+
+@media (max-width: 370px) {
+  .couple-hero .hero-copy.couple-composition { padding-inline: 25px; }
+  .couple-hero .couple-heading h1 { font-size: 42px; }
+  .couple-person { width: 210px; }
+  .couple-florals { width: 23%; }
+  .closing-invitation { padding-inline: 18px; }
+  .closing-card { padding-inline: 18px; }
+}
+
+@media (max-width: 960px) and (orientation: landscape) and (max-height: 540px) {
+  /* Preserve enough vertical room for portraits on a sideways phone. */
+  .hero.couple-hero { height: 660px; min-height: 660px; }
+  .couple-pair { left: 18%; right: 18%; }
+  .couple-person { width: 25cqw; }
+  .couple-description { white-space: normal; font-size: 16px; }
+  .couple-heading > p { font-size: 19px; }
+  .couple-role { font-size: 12px; }
+}

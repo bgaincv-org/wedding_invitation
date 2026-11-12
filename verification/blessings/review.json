@@ -1,0 +1,108 @@
+[
+  {
+    "width": 320,
+    "locale": "en",
+    "previous": "moments",
+    "overflow": false,
+    "names": "Sathvik&Harika",
+    "image": {
+      "loaded": true,
+      "naturalRatio": 1.3333333333333333,
+      "displayedRatio": 1.3333333333333333,
+      "border": "0px",
+      "outline": "none",
+      "insideViewport": true
+    },
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "previous": "moments",
+    "overflow": false,
+    "names": "Sathvik&Harika",
+    "image": {
+      "loaded": true,
+      "naturalRatio": 1.3358490566037735,
+      "displayedRatio": 1.3333333333333333,
+      "border": "0px",
+      "outline": "none",
+      "insideViewport": true
+    },
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "locale": "en",
+    "previous": "moments",
+    "overflow": false,
+    "names": "Sathvik&Harika",
+    "image": {
+      "loaded": true,
+      "naturalRatio": 1.3333333333333333,
+      "displayedRatio": 1.3333333333333333,
+      "border": "0px",
+      "outline": "none",
+      "insideViewport": true
+    },
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "locale": "en",
+    "previous": "moments",
+    "overflow": false,
+    "names": "Sathvik&Harika",
+    "image": {
+      "loaded": true,
+      "naturalRatio": 1.3333333333333333,
+      "displayedRatio": 1.3333333333333333,
+      "border": "0px",
+      "outline": "none",
+      "insideViewport": true
+    },
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "locale": "te",
+    "previous": "moments",
+    "overflow": false,
+    "names": "సాత్విక్&హారిక",
+    "image": {
+      "loaded": true,
+      "naturalRatio": 1.3358490566037735,
+      "displayedRatio": 1.3333333333333333,
+      "border": "0px",
+      "outline": "none",
+      "insideViewport": true
+    },
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "locale": "te",
+    "previous": "moments",
+    "overflow": false,
+    "names": "సాత్విక్&హారిక",
+    "image": {
+      "loaded": true,
+      "naturalRatio": 1.3333333333333333,
+      "displayedRatio": 1.3333333333333333,
+      "border": "0px",
+      "outline": "none",
+      "insideViewport": true
+    },
+    "violations": [],
+    "errors": []
+  },
+  {
+    "openingFlow": true,
+    "newSectionCount": 1
+  }
+]

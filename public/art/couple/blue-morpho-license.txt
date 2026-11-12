@@ -1,0 +1,18 @@
+Blue morpho butterfly photograph
+
+Title: Morpho menelaus huebneri MHNT Male Dos.jpg
+Photographer: Didier Descouens
+Collection: Museum de Toulouse
+Source: https://commons.wikimedia.org/wiki/File:Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg
+Downloaded image: https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg/960px-Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg
+
+License: Creative Commons Attribution-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Changes: White background and measurement scale removed; cropped, resized,
+converted to transparent WebP and separated into left wing, right wing and body
+layers for animation. Original photographic colors and texture retained.
+No generative AI used. Animated movement is a website effect, not recorded video.
+
+The derived blue-morpho-*.webp image assets are also licensed CC BY-SA 4.0.
+No endorsement by the photographer or museum is implied.

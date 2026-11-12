@@ -1,0 +1,15 @@
+@import '@fontsource/cormorant-garamond/latin-400.css';
+@import '@fontsource/cormorant-garamond/latin-400-italic.css';
+@import '@fontsource/cormorant-garamond/latin-500.css';
+@import '@fontsource/cormorant-garamond/latin-500-italic.css';
+@import '@fontsource/cormorant-garamond/latin-600.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/noto-serif-telugu/400.css';
+:root{font-family:'DM Sans',sans-serif;color:#393e31;background:#f8f5ed;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;--paper:#f8f5ed;--ink:#393e31;--gold:#98783d;--muted:#737366;--line:#dcd7c9;--serif:'Cormorant Garamond','Noto Serif Telugu',serif}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,a,input,textarea,select{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer;color:inherit}a{color:inherit;text-decoration:none}button{border:0;background:none}img{max-width:100%;display:block}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:400}h2{font-size:clamp(42px,4.6vw,69px);line-height:1.05;letter-spacing:-1.5px}h2 em{color:var(--gold);font-weight:400}p{line-height:1.85}::selection{background:#e5d6b2;color:#333c2c}:focus-visible{outline:2px solid #986c36;outline-offset:5px}button:disabled{cursor:wait;opacity:.65}section{scroll-margin-top:12px}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;left:20px;top:-100px;background:var(--ink);color:white;padding:14px;z-index:100}.skip-link:focus{top:10px}.spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+:root{--gold:#7f622f;--muted:#656557}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+html{scrollbar-gutter:stable} .event-options{display:grid;gap:12px}.event-options label{display:flex;gap:9px;align-items:center}.event-options input{accent-color:#505d41}

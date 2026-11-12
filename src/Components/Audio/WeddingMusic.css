@@ -1,0 +1,6 @@
+.wedding-audio { display: none; }
+.sound-control { min-height: 44px; transition: background-color .3s ease, box-shadow .3s ease; }
+.song-notice { position: fixed; z-index: 45; left: 25px; bottom: 78px; max-width: min(280px, calc(100vw - 34px)); margin: 0; padding: 12px 16px; background: #fff8e9; border: 1px solid #b79558; border-radius: 8px; color: #4b4a38; font-size: 12px; line-height: 1.6; box-shadow: 0 6px 24px #33221120; }
+.song-credit { display: block; width: fit-content; margin: 10px auto 0; color: var(--muted); font-size: 10px; text-underline-offset: 3px; }
+@media (max-width: 760px) { .song-notice { left: 17px; bottom: 74px; } }
+@media print { .song-notice { display: none; } }

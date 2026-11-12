@@ -1,0 +1,18 @@
+.family-invitation-copy { color: #69583a; text-align: center; font: 400 19px/1.65 'Cormorant Garamond', 'Noto Serif Telugu', serif; }
+.family-invitation-copy > p { margin: 14px 0; text-wrap: balance; }
+.family-invitation-copy .family-invocation { margin: 0 0 30px; font-size: 15px; color: #697145; letter-spacing: .06em; }
+.family-invitation-copy .family-hosts { font-size: 25px; font-weight: 600; line-height: 1.4; color: #831b35; }
+.family-hosts > span { display: block; color: #69583a; font-size: 17px; font-weight: 400; margin-top: 6px; }
+.family-invitation-copy .family-formal-name { font-size: 34px; font-weight: 600; line-height: 1.3; color: #831b35; margin-block: 18px 5px; }
+.family-invitation-copy .family-with { font-style: italic; margin-block: 3px; color: #9a7235; }
+.family-bride-parents > span, .family-bride-parents > strong { display: block; }
+.family-bride-parents > strong { font-size: 21px; font-weight: 500; color: #785734; }
+.family-elders { border-top: 1px solid #bf944b66; padding-top: 21px; margin-top: 28px; font-size: 17px; }
+.family-elders p { margin: 3px 0; }.family-elders strong { font-size: 20px; font-weight: 500; color: #831b35; }
+.locale-te .family-invitation-copy { font-size: 15px; line-height: 1.9; }
+.locale-te .family-invitation-copy .family-formal-name { font-size: 27px; line-height: 1.7; }
+@media(max-width:600px) {
+ .family-invitation-copy { font-size: 18px; }.family-invitation-copy .family-invocation { font-size: 12px; letter-spacing: 0; }
+ .family-invitation-copy .family-hosts { font-size: 24px; }.family-invitation-copy .family-formal-name { font-size: 29px; }
+ .family-bride-parents > strong { font-size: 20px; }.family-elders strong { font-size: 19px; }
+}

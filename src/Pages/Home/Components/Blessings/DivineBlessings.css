@@ -1,0 +1,125 @@
+/* A closing page in the same parchment, maroon and gold as the invitation. */
+.divine-blessings {
+  --blessings-maroon: #861d39;
+  --blessings-gold: #a57a2d;
+  --blessings-ink: #6d643d;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 76px 40px 112px;
+  text-align: center;
+  color: var(--blessings-ink);
+  font-family: var(--serif);
+  background: linear-gradient(#fff1cf55, #fff1cf55), #fcf1d9 url('/art/cover/paper.webp') center / cover;
+}
+.divine-blessings::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/art/gallery/paper-motif.svg') center top / 190px 190px;
+  opacity: .22;
+  pointer-events: none;
+}
+.divine-blessings::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 26px;
+  border-block: 1px solid #af7d30;
+  background: #f3d68e url('/art/gallery/lotus-border.svg') center / auto 26px repeat-x;
+  pointer-events: none;
+}
+.blessings-heading { max-width: 760px; margin-inline: auto; }
+.blessings-heading-symbol,
+.blessings-rule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  color: var(--blessings-gold);
+}
+.blessings-heading-symbol { margin-bottom: 24px; }
+.blessings-heading-symbol > span,
+.blessings-rule > span { width: 48px; height: 1px; background: currentColor; opacity: .65; }
+.blessings-namam { display: block; width: 32px; height: 40px; }
+.blessings-namam-center { fill: var(--blessings-maroon); }
+.blessings-eyebrow {
+  color: #826333;
+  font: 500 9px/1.8 'DM Sans', 'Noto Serif Telugu', sans-serif;
+  letter-spacing: .25em;
+}
+.blessings-heading h2 {
+  margin: 20px 0 24px;
+  color: var(--blessings-maroon);
+  font: 400 clamp(48px, 4.8vw, 70px)/1.25 'Great Vibes', cursive;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.blessings-verse { font: 400 15px/2.25 'Noto Serif Telugu', serif; }
+.blessings-verse > span { display: block; text-wrap: balance; }
+.blessings-artwork { width: 100%; max-width: 840px; margin: 38px auto 0; }
+/* Preserve the entire devotional painting, without a frame, filter or crop. */
+.blessings-artwork > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  object-fit: contain;
+}
+.blessings-artwork figcaption { margin-top: 18px; color: #706548; font: italic 18px/1.6 var(--serif); text-wrap: balance; }
+.blessings-closing { position: relative; max-width: 660px; margin: 38px auto 0; }
+.blessings-rule { margin-bottom: 22px; }
+.blessings-saha-seal { display: block; width: 88px; height: auto; filter: drop-shadow(0 3px 4px #7150261f); }
+.blessings-wish { font: 400 21px/1.6 var(--serif); text-wrap: balance; }
+.blessings-names {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 20px 0 12px;
+  color: var(--blessings-maroon);
+  font: 400 clamp(45px, 4.6vw, 65px)/1.3 'Great Vibes', cursive;
+}
+.blessings-names > i { color: var(--blessings-gold); font: italic .55em/1 var(--serif); }
+.blessings-signoff { color: #706548; font: italic 18px/1.6 var(--serif); text-wrap: balance; }
+.blessings-family { margin: 28px auto 12px; font: 400 15px/2.1 'Noto Serif Telugu',serif; }
+.blessings-family > p { margin: 0 0 10px; }
+.blessings-family > strong { display: block; color: var(--blessings-maroon); font-weight: 500; }
+.blessings-family > .blessings-family-welcome { margin: 20px 0 0; text-wrap: balance; }
+.blessings-florals { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.blessings-florals > img { position: absolute; left: 20px; bottom: 36px; width: clamp(100px, 12vw, 180px); height: auto; }
+.blessings-florals > img + img { left: auto; right: 20px; transform: scaleX(-1); }
+.locale-te .blessings-heading h2 { font: 400 clamp(27px, 3.2vw, 43px)/1.7 'Noto Serif Telugu', serif; }
+.locale-te .blessings-eyebrow { font-size: 11px; letter-spacing: .06em; }
+.locale-te .blessings-names { font: 400 clamp(27px, 3.5vw, 43px)/1.7 'Noto Serif Telugu', serif; }
+.locale-te .blessings-wish,
+.locale-te .blessings-signoff,
+.locale-te .blessings-artwork figcaption { font-size: 14px; line-height: 1.9; }
+@media (max-width: 600px) {
+  .divine-blessings { padding: 54px 24px 112px; }
+  .divine-blessings::after { height: 22px; background-size: auto 22px; }
+  .blessings-heading-symbol { margin-bottom: 20px; }
+  .blessings-namam { width: 28px; height: 35px; }
+  .blessings-heading-symbol > span { width: 36px; }
+  .blessings-eyebrow { font-size: 8px; letter-spacing: .16em; }
+  .blessings-heading h2 { font-size: clamp(40px, 10.5vw, 55px); margin: 18px 0 22px; }
+  .blessings-verse { font-size: 12px; line-height: 2.3; }
+  .blessings-artwork { margin-top: 28px; }
+  .blessings-artwork figcaption { margin-top: 14px; font-size: 16px; }
+  .blessings-closing { margin-top: 28px; }
+  .blessings-rule { margin-bottom: 18px; }
+  .blessings-saha-seal { width: 76px; }
+  .blessings-wish { font-size: 19px; }
+  .blessings-names { font-size: 44px; gap: 12px; margin: 18px 0 10px; }
+  .blessings-signoff { font-size: 17px; }
+  .blessings-family { font-size: 13px; }
+  .blessings-florals > img { left: 8px; bottom: 30px; width: 86px; }
+  .blessings-florals > img + img { right: 8px; }
+  .locale-te .blessings-wish,
+  .locale-te .blessings-signoff,
+  .locale-te .blessings-artwork figcaption { font-size: 12px; }
+}

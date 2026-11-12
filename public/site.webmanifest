@@ -1,0 +1,13 @@
+{
+  "id": "/",
+  "name": "SaHa — Sai Sathvik & Harika",
+  "short_name": "SaHa",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fcf3df",
+  "theme_color": "#79132b",
+  "icons": [
+    { "src": "/art/branding/saha-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/art/branding/saha-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

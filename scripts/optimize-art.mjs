@@ -1,0 +1,10 @@
+import sharp from 'sharp'
+await sharp('asset-sources/courtyard-original.png').resize(1536).webp({ quality: 85 }).toFile('public/art/courtyard.webp')
+await sharp('asset-sources/courtyard-original.png').resize(900).webp({ quality: 82 }).toFile('public/art/courtyard-mobile.webp')
+await sharp('asset-sources/rituals-original.png').resize(900).webp({ quality: 84 }).toFile('public/art/rituals.webp')
+await sharp('asset-sources/courtyard-original.png').resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 80 }).toFile('public/art/social.jpg')
+console.log('Optimized original illustrations.')
+await sharp('asset-sources/dharmavaram-silk-original.png').resize(760).webp({ quality: 78 }).toFile('public/art/dharmavaram-silk.webp')
+await sharp('asset-sources/pancha-silk-original.png').resize(760).webp({ quality: 78 }).toFile('public/art/pancha-silk.webp')
+await sharp('asset-sources/jasmine-evening-original.png').resize(1080).webp({ quality: 82 }).toFile('public/art/jasmine-evening.webp')
+await sharp('asset-sources/silk-and-letters-original.png').resize(900).webp({ quality: 82 }).toFile('public/art/silk-and-letters.webp')

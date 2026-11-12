@@ -1,0 +1,52 @@
+{
+  "performance": [
+    {
+      "width": 390,
+      "frames": 371,
+      "median": 6.099999999999909,
+      "p95": 6.2000000000000455,
+      "max": 42.5,
+      "over25": 1
+    },
+    {
+      "width": 1440,
+      "frames": 372,
+      "median": 6.099999999999909,
+      "p95": 6.2000000000000455,
+      "max": 30.200000000000045,
+      "over25": 1
+    }
+  ],
+  "icons": [
+    {
+      "url": "/favicon.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "url": "/favicon-32.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/apple-touch-icon.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/site.webmanifest",
+      "status": 200,
+      "type": "application/manifest+json"
+    },
+    {
+      "url": "/art/branding/saha-icon-192.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "url": "/art/branding/saha-icon-512.png",
+      "status": 200,
+      "type": "image/png"
+    }
+  ]
+}

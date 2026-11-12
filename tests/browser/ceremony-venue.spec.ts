@@ -1,0 +1,45 @@
+import { test, expect } from '@playwright/test'
+
+// Keep interaction checks deterministic; the live provider is inspected separately.
+test.beforeEach(async ({ page }) => {
+  await page.route('https://www.google.com/maps?**', route => route.fulfill({ contentType: 'text/html', body: '<html><body><h1>Venue map preview</h1><button>Zoom in</button></body></html>' }))
+})
+
+test('seven illustrated chapters finish with Muhurtham and Mangalya Dharanam and navigate by keyboard', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/#celebrations')
+  const stops = page.locator('.journey-stop')
+  await expect(stops).toHaveCount(7)
+  expect(await stops.evaluateAll(nodes => nodes.slice(-2).map(node => node.getAttribute('data-event')))).toEqual(['wedding', 'mangalya-dharanam'])
+  await expect(page.locator('.journey-stop time')).toHaveCount(2)
+  await expect(page.locator('[data-event="mangalya-dharanam"]')).toContainText('Following the Muhurtham')
+  await page.locator('.journey-ceremony-art img').evaluateAll(images => { images.forEach(img => (img as HTMLImageElement).loading = 'eager'); return Promise.all(images.map(img => (img as HTMLImageElement).decode())) })
+  const lastChapter = page.locator('.journey-chapters a').last()
+  await lastChapter.focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('#event-mangalya-dharanam')).toBeFocused()
+  await expect(page.locator('#event-mangalya-dharanam h3')).toBeInViewport()
+})
+
+test('venue map activates on request and the invitation pulse pauses offscreen and on request', async ({ page }) => {
+  await page.goto('/#the-details')
+  const section = page.locator('#the-details')
+  const arrow = page.locator('.venue-map-arrow')
+  await expect(section).toHaveAttribute('data-motion-active', 'true')
+  await expect(arrow).toHaveCSS('animation-play-state', 'running')
+  await expect(page.locator('.venue-map-preview iframe')).toHaveCSS('pointer-events', 'none')
+  await page.getByRole('button', { name: 'Explore the interactive venue map' }).click()
+  await expect(page.locator('.venue-map-preview iframe')).toHaveCSS('pointer-events', 'auto')
+  await expect(page.frameLocator('.venue-map-preview iframe').getByRole('heading', { name: 'Venue map preview' })).toBeVisible()
+  await page.getByRole('button', { name: 'Lock map', exact: true }).click()
+  await expect(page.locator('.venue-map-preview iframe')).toHaveAttribute('tabindex', '-1')
+  await page.getByRole('button', { name: 'Pause venue animation' }).click()
+  await expect(arrow).toHaveCSS('animation-play-state', 'paused')
+  await page.getByRole('button', { name: 'Resume venue animation' }).click()
+  await expect(arrow).toHaveCSS('animation-play-state', 'running')
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
+  await expect(section).toHaveAttribute('data-motion-active', 'false')
+  await expect(arrow).toHaveCSS('animation-play-state', 'paused')
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await expect(arrow).toHaveCSS('animation-name', 'none')
+})
