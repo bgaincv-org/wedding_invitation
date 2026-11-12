@@ -1,2 +1,20 @@
 import { defineConfig } from '@playwright/test'
-export default defineConfig({ testDir: './tests/browser', timeout: 30000, workers: 1, use: { baseURL: 'http://127.0.0.1:5173', channel: 'msedge', headless: true, screenshot: 'only-on-failure', trace: 'retain-on-failure' }, reporter: [['list']] })
+export default defineConfig({
+  testDir: './tests/browser',
+  timeout: 30000,
+  workers: 1,
+  use: {
+    baseURL: 'http://127.0.0.1:5173',
+    channel: 'msedge',
+    headless: true,
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+  },
+  webServer: {
+    command: 'yarn build && yarn preview --host 127.0.0.1 --port 5173',
+    url: 'http://127.0.0.1:5173',
+    reuseExistingServer: false,
+    timeout: 120000,
+  },
+  reporter: [['list']],
+})

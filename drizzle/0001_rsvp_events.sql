@@ -1,1 +1,0 @@
-ALTER TABLE rsvps ADD COLUMN event_ids TEXT NOT NULL DEFAULT '[]';

@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.openai
+backend
+data
+artifacts
+verification
+test-results
+playwright-report
+tmp
+asset-sources
+*.log
+.env*

@@ -34,33 +34,6 @@ test('invitation, traditions, sound, details, sharing and keyboard dialog', asyn
   expect(errors).toEqual([])
 })
 
-test('RSVP validates, persists to the API and provides a real receipt', async ({ page }) => {
-  await page.goto('/#rsvp')
-  await page.getByRole('button', { name: 'Send with love' }).click()
-  await expect(page.locator('input[name=name]')).toBeFocused()
-  await page.getByLabel('Your name', { exact: true }).fill('Browser QA Guest')
-  await page.getByLabel('Email address', { exact: true }).fill('browser-qa@example.invalid')
-  await page.getByLabel('Guests, including you').selectOption('3')
-  await page.getByLabel('A little note (optional)').fill('Automated local verification record. Remove after testing.')
-  await page.getByLabel(/I agree to share/).check()
-  const response = page.waitForResponse(response => response.url().endsWith('/api/v1/rsvp') && response.request().method() === 'POST')
-  await page.getByRole('button', { name: 'Send with love' }).click()
-  expect((await response).status()).toBe(201)
-  await expect(page.locator('#rsvp').getByRole('status')).toContainText('Your reply is safely with us.')
-  await expect(page.locator('#rsvp').getByRole('status')).toContainText(/Your reference: [A-F0-9]{16}/)
-})
-
-test('failed RSVP keeps form values and allows retry without claiming success', async ({ page }) => {
-  await page.route('**/api/v1/rsvp', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"unavailable"}' }))
-  await page.goto('/#rsvp')
-  await page.getByLabel('Your name', { exact: true }).fill('Retry QA Guest')
-  await page.getByLabel('Email address', { exact: true }).fill('retry@example.invalid')
-  await page.getByLabel(/I agree to share/).check()
-  await page.getByRole('button', { name: 'Send with love' }).click()
-  await expect(page.getByRole('alert')).toContainText('could not be saved')
-  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Retry QA Guest')
-})
-
 for (const width of [320, 360, 375, 390, 430, 768, 1024, 1440]) {
   test(`English and Telugu fit ${width}px and respect reduced motion`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 })

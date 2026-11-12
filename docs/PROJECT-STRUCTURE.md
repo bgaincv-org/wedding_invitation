@@ -25,7 +25,6 @@ src/
         Traditions/               # Ceremony tabs
         Details/                  # Venue, travel and guest information
         Gallery/                  # Lazy gallery and lightbox styles
-        RSVP/                     # Section, lazy loader and connected form
         Closing/                  # Closing note and share actions
   Components/
     Audio/                        # WeddingMusic, WeddingSong and audio styles
@@ -33,10 +32,9 @@ src/
     Dialogs/                      # Invitation and sharing dialogs
     Layout/                       # WeddingFooter and FooterArtwork
   hooks/useWeddingInvitation.ts   # Cross-page state, preferences and actions
-  services/rsvp.ts                # Browser API client and API error handling
   lib/
     content.ts                    # Localization, safe URLs and welcome rules
-    calendar.ts                   # Calendar export, also tested by the server suite
+    calendar.ts                   # Browser-side calendar export and unit tests
     animation/                    # Shared wind, image mesh and lettering helpers
   styles/
     globals.css                   # Fonts, tokens, reset and base elements
@@ -45,15 +43,13 @@ src/
     responsive.css                # Final mobile and landscape overrides
   assets/                         # Assets imported into frontend source
 
-shared/                           # Wedding data and shared RSVP validation
-server/                           # Local SQLite API and deployed Worker/D1 adapter
-backend/                          # Separate NestJS/MongoDB deployment option
+shared/                           # Wedding data and journey configuration
 public/                           # Stable public URLs for artwork, fonts and audio
 asset-sources/                    # Original artwork, reference files and provenance
-drizzle/                          # Hosted database migrations
-tests/                            # Pure unit/API checks and browser interaction tests
-scripts/                          # Build, asset, review and organizer utilities
+tests/                            # Pure unit checks and browser interaction tests
+scripts/                          # Asset preparation and review utilities
 docs/                             # Configuration, architecture and verification guides
+vercel.json                       # Vite build, static output and SPA routing
 ```
 
 ## Where to make changes
@@ -67,21 +63,20 @@ docs/                             # Configuration, architecture and verification
 | Footer controls or final artwork | `src/Components/Layout/` |
 | Language, opening state, sharing or calendar actions | `src/hooks/useWeddingInvitation.ts` |
 | Wedding names, dates, events and content | `shared/wedding.ts` |
-| RSVP form | `src/Pages/Home/Components/RSVP/` |
-| RSVP request/response handling in the browser | `src/services/rsvp.ts` |
+| Static hosting and Vercel settings | `vercel.json`, `vite.config.ts` and `docs/DEPLOYMENT.md` |
 
 ## Conventions
 
 - Match the exact directory casing: `Pages`, `Components`, `Home`, `OpenInvitation`.
-- Use `@/` for imports from `src/` and `@shared/` for shared contracts. The paths are declared in `tsconfig.paths.json` and mirrored in `vite.config.ts`. Keep server-side imports relative so both server runtimes remain independent of Vite.
+- Use `@/` for imports from `src/` and `@shared/` for shared content. The paths are declared in `tsconfig.paths.json` and mirrored in `vite.config.ts`.
 - Use relative imports within a feature folder. Keep a component's dedicated CSS and calculation/rendering helpers beside it.
 - Put code in shared `Components` or `lib/animation` only when multiple features use it. Page-specific code stays in its page folder.
-- Preserve lazy imports for the gallery and RSVP form. Avoid a central barrel that eagerly imports every feature.
+- Preserve progressive section mounting and lazy asset loading. Avoid a central barrel that eagerly imports every feature.
 - Global styles load in order: globals, component/page styles, invitation styles, scene styles, then responsive overrides. The shared stylesheet boundaries preserve the existing cascade; moving selectors between them requires visual checks.
 - Public asset URLs are independent of source paths. Keep originals in `asset-sources` and runtime assets in `public`.
-- `backend` and `server` are intentional alternatives, not duplicate frontend folders. See the deployment documentation before changing either runtime.
+- The invitation is frontend-only. No server, database, API proxy or Worker build is required.
 - Generated `dist`, test output, `artifacts`, dependencies, local database files and environment secrets stay ignored. Preserve local source artwork even when it is not yet referenced.
 
 ## Checks
 
-`yarn test` runs all unit/API tests, including countdown, footprint geometry and motion models. `yarn lint` and `yarn build` check the source and production bundles. Browser checks require the running local app; `yarn test:e2e --grep-invert "RSVP validates, persists"` exercises the UI without writing the real-browser RSVP test record. The persistence behavior is also tested against an isolated in-memory database in the unit suite.
+`yarn test` runs unit tests for countdowns, footprint geometry and motion models. `yarn build` checks TypeScript and produces static files in `dist`. `yarn test:deploy` starts a production preview automatically and checks that the invitation works without backend requests. The gallery and invitation-details browser suites cover the current layout and guest actions; other older browser cases include previous designs.

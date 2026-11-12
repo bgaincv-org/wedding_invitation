@@ -26,10 +26,11 @@ data/
 test-results/
 playwright-report/
 artifacts/
-backend/node_modules/
-backend/dist/
-backend/coverage/
+# Generated files left from the retired backend are local-only.
+backend/
+.vercel/
+verification/
+tmp/
 *.tar.gz
 .env
 .env.*
-!.env.example

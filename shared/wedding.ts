@@ -55,7 +55,6 @@ export const wedding = {
   venue,
   timezone: 'Asia/Kolkata',
   contact: null as { name: string; phone: string } | null,
-  rsvpEnabled: true,
   maxGuests: 6,
   families: {
     first: {
@@ -82,7 +81,6 @@ export const wedding = {
   video: null as { src: string; poster?: string; title: Localized } | null,
   countdownTo: muhurthamAt as string | null,
   countdownTentative: false,
-  rsvpEvents: false,
   events: [
     {
       id: 'reception',

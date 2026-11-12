@@ -18,12 +18,6 @@ export default defineConfig({
     host: '127.0.0.1',
     port: 3010,
     strictPort: true,
-    proxy: {
-      '/api': {
-        target: process.env.RSVP_API_TARGET ?? 'http://127.0.0.1:3001',
-        changeOrigin: false,
-      },
-    },
   },
 
   preview: {
@@ -32,7 +26,7 @@ export default defineConfig({
   },
 
   build: {
-    outDir: 'dist/client',
+    outDir: 'dist',
     chunkSizeWarningLimit: 650,
   },
 })

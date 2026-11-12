@@ -19,13 +19,6 @@ test('Escape completes the saree and reload restores the invitation cover', asyn
   await expect(page.getByRole('button', { name: 'Pause wedding song' })).toHaveAttribute('aria-pressed', 'true')
 })
 
-test('guest shortcut loads the deferred reply card from the opening', async ({ page }) => {
-  await page.goto('/')
-  await page.getByRole('button', { name: 'Open invitation', exact: true }).click()
-  await page.getByRole('navigation', { name: 'Guest shortcuts' }).getByRole('link', { name: 'RSVP' }).click()
-  await expect(page.getByLabel('Your name', { exact: true })).toBeVisible()
-})
-
 test('gallery supports arrows, focus restoration, touch and a readable dialog', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/#moments')
